@@ -1,9 +1,7 @@
 import parse from "date-fns/parse";
 import { defineStore } from "pinia";
 import { useStorage } from "../composables/useStorage.js";
-
 const storage = useStorage("salah-list");
-
 export const useSalahStore = defineStore("salah", {
   state() {
     return {
@@ -16,10 +14,8 @@ export const useSalahStore = defineStore("salah", {
   },
   getters: {
     nextPrayer(state) {
-      const now = new Date();
-
       const today = state.list.find((p) => {
-        return parse(p.time, "HH:mm", new Date()) > now;
+        return parse(p.time, "HH:mm", new Date()) > this.now;
       });
 
       if (today !== undefined) {
@@ -27,7 +23,7 @@ export const useSalahStore = defineStore("salah", {
       }
 
       return state.list.find((p) => {
-        return parse(p.time, "HH:mm", new Date()) < now;
+        return parse(p.time, "HH:mm", new Date()) < this.now;
       });
     },
     lists(state) {

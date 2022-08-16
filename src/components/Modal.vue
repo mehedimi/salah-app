@@ -16,7 +16,6 @@
       >
         <div class="fixed inset-0 bg-black bg-opacity-25" />
       </TransitionChild>
-
       <div class="fixed inset-0 overflow-y-auto">
         <div
           class="flex min-h-full items-center justify-center p-4 text-center"
@@ -41,19 +40,28 @@
               </DialogTitle>
               <div class="mt-6">
                 <form @submit.prevent="store.handleForm">
-                  <div class="mb-4">
+                  <div class="mb-4 relative">
                     <input
                       type="text"
-                      placeholder="Salah name"
+                      id="name"
                       v-model="store.data.name"
-                      class="w-full border-0 border-b border-b-gray-200 focus:ring-0 focus:border-b-gray-400 text-gray-500"
+                      class="w-full placeholder-transparent border-0 border-b border-b-gray-200 px-0 focus:ring-0 focus:border-b-teal-400 text-gray-500 peer"
+                      placeholder="Name"
                     />
+                    <label
+                      for="name"
+                      class="text-gray-500 transition-all absolute left-0 -top-3.5 peer-placeholder-shown:top-2"
+                      >Name</label
+                    >
                   </div>
-                  <div class="mb-4">
+                  <div class="mb-4 relative">
+                    <label for="time" class="text-gray-500">Time</label>
                     <input
                       v-model="store.data.time"
                       type="time"
-                      class="w-full border-0 border-b border-b-gray-200 focus:ring-0 focus:border-b-gray-400 text-gray-500"
+                      id="time"
+                      class="w-full border-0 border-b border-b-gray-200 p-0 focus:ring-0 focus:border-b-teal-400 text-gray-500"
+                      placeholder="Tap to set time"
                     />
                   </div>
                   <div class="mt-4 flex justify-between">
@@ -61,9 +69,11 @@
                       type="button"
                       @click="store.remove"
                       class="text-red-500"
+                      v-if="store.editIndex !== undefined"
                     >
                       Delete
                     </button>
+                    <span v-else></span>
                     <div>
                       <button
                         type="button"
@@ -72,7 +82,6 @@
                       >
                         Cancel
                       </button>
-
                       <button
                         class="bg-teal-500 text-white px-6 py-2 text-sm rounded-xl inline-flex gap-x-1.5"
                       >
@@ -89,7 +98,6 @@
     </Dialog>
   </TransitionRoot>
 </template>
-
 <script setup>
 import {
   TransitionRoot,
@@ -99,6 +107,5 @@ import {
   DialogTitle,
 } from "@headlessui/vue";
 import { useSalahStore } from "../stores/salah.js";
-
 const store = useSalahStore();
 </script>

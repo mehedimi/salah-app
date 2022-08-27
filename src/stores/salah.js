@@ -53,6 +53,9 @@ export const useSalahStore = defineStore("salah", {
       return state.list;
     },
     diffMinutes(state) {
+      if (!state.nextPrayer) {
+        return 0;
+      }
       return differenceInMinutes(
         parse(state.nextPrayer.time, "HH:mm", new Date()),
         state.now

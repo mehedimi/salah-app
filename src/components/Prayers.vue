@@ -5,7 +5,7 @@ const store = useSalahStore();
 </script>
 <template>
   <div class="mt-8">
-    <h2 class="text-xl text-gray-600 font-semibold">Salah List</h2>
+    <h2 class="text-xl text-gray-600 font-semibold">Salah List ({{ store.list.length }})</h2>
     <nav class="mt-2" v-if="store.list.length">
       <button
         v-for="element in store.lists"
@@ -14,7 +14,7 @@ const store = useSalahStore();
       >
         <span class="text-gray-500">{{ element.name }}</span>
         <span class="font-semibold text-gray-400">{{
-          format(parse(element.time, "HH:mm", new Date()), "KK:mm a")
+          format(parse(element.time, "HH:mm", new Date()), "hh:mm a")
         }}</span>
       </button>
     </nav>

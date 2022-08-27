@@ -15,6 +15,7 @@
     "@umalqura/core": "^0.0.7",
     "date-fns": "^2.29.1",
     "pinia": "^2.0.17",
+    "pluralize": "^8.0.0",
     "vue": "^3.2.37",
     "vuedraggable": "^4.1.0"
   },

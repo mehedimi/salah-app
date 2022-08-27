@@ -8,6 +8,7 @@ specifiers:
   autoprefixer: ^10.4.8
   date-fns: ^2.29.1
   pinia: ^2.0.17
+  pluralize: ^8.0.0
   postcss: ^8.4.16
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.13
@@ -21,6 +22,7 @@ dependencies:
   '@umalqura/core': 0.0.7
   date-fns: 2.29.1
   pinia: 2.0.17_vue@3.2.37
+  pluralize: 8.0.0
   vue: 3.2.37
   vuedraggable: 4.1.0_vue@3.2.37
 
@@ -733,6 +735,11 @@ packages:
       '@vue/devtools-api': 6.2.1
       vue: 3.2.37
       vue-demi: 0.13.6_vue@3.2.37
+    dev: false
+
+  /pluralize/8.0.0:
+    resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
+    engines: {node: '>=4'}
     dev: false
 
   /postcss-import/14.1.0_postcss@8.4.16:

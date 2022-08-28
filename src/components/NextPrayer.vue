@@ -19,7 +19,10 @@ onBeforeUnmount(() => {
     :style="{ backgroundImage: `url(${bg})` }"
     class="rounded-3xl text-white text-center space-y-2.5 overflow-hidden bg-no-repeat bg-top bg-cover"
   >
-    <div class="px-4 py-10 relative" :style="{backgroundColor: `rgba(${store.color}, 0.8)`}">
+    <div
+      class="px-4 py-10 relative transition-colors"
+      :style="{ backgroundColor: `rgba(${store.color}, 0.8)` }"
+    >
       <template v-if="store.nextPrayer">
         <h2 class="text-2xl">{{ store.nextPrayer.name }}</h2>
         <h1 class="text-4xl font-bold">
